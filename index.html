@@ -25,6 +25,7 @@
                         }
                     };
                 Heartstring.Fontbar.init(".hs-fontbar", fontbarConfig);
+                $('.dropdown-toggle').dropdown();
             });
         </script>
         
@@ -37,7 +38,19 @@
                 <div id="hs-controller" class="span4 offset5" style="display: none;">
                     <div style="margin-bottom: 9px" class="btn-toolbar">
                         <div class="btn-group">
-                          <button id="hs-controller-font-family" class="btn"><i class="icon-font"></i></button>
+                          <div class="drop-down">
+                          <button class="btn dropdown-toggle" data-toggle="dropdown" id="hs-controller-font-family">
+                              <i class="icon-font"></i>
+                          </button>
+                          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                              <li>
+                                  <a href="#">Arial</a>
+                              </li>
+                              <li>
+                                  <a href="#">Font B</a>
+                              </li>
+                          </ul>
+                          </div>
                           <button id="hs-controller-contrast" class="btn"><i class="icon-adjust"></i></button>
                           <button id="hs-controller-font-smaller" class="btn"><i class="hs-icon"><img src="img/glyphicons/glyphicons_115_text_smaller.png"></i></button>
                           <button id="hs-controller-font-bigger" class="btn"><i class="hs-icon"><img src="img/glyphicons/glyphicons_116_text_bigger.png"></i></button>
