@@ -36,6 +36,26 @@ Heartstring.Fontbar = function (container, config) {
     }
     
     /**
+     * Bind font face
+     */
+    that.bindFontFace = function(that) {
+        Heartstring.select(that.config.selectors.controllerFontFace).dropdown();
+        //Add li to ul object automatically based on config.
+        var dropdownMenu = Heartstring.select(that.config.selectors.controllerDropdownMenu);
+        $.each(that.config.fontface, function(fontfaceClass, fontfaceName) {
+            dropdownMenu.append(
+                $('<li>').append(
+                    $('<a>').attr('href','#').addClass(fontfaceClass).append(
+                        $('<span>').css('font-family', fontfaceName).append(fontfaceName)
+            )));
+            //each of these options, onclick, change the font face of the paragraph
+            Heartstring.select(fontfaceClass).bind("click", function(evt) {
+                Heartstring.select(that.config.selectors.body).css('font-family', fontfaceName);
+            });
+        });
+    }
+    
+    /**
      * Bind slider 
      */
     that.bindSlider = function(that) {
@@ -122,6 +142,7 @@ Heartstring.Fontbar.init = function(container, config) {
 
 Heartstring.Fontbar.bind = function(that) {
     that.bindRow(that);
+    that.bindFontFace(that);
     that.bindSlider(that);
     that.bindContrast(that);
     that.bindFontSize(that);
@@ -138,12 +159,16 @@ Heartstring.Fontbar.defaults = {
             DEFAULT_FONT_SIZE: 13,
             content: '.hs-content',
             body: 'body',
+            controllerDropdownMenu: "dropdown-menu",  //bootstrap dropdown class.
+            controllerFontFace: "hs-controller-font-face",
             controllerFontBigger: ".hs-controller-font-bigger",
             controllerFontSmaller: ".hs-controller-font-smaller",
             controllerContrast: ".hs-controller-contrast",
             controllerSlider: ".hs-controller-slider",
             controllerToggler: ".hs-controller-toggler", //The button that opens and close the panel.
             controller: ".hs-controller" //controller toolbar
+        },
+        fontface: {
         }
     }
 };

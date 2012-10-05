@@ -16,12 +16,18 @@
                 var fontbarConfig = {
                         selectors: {
                             content: 'hs-content',
+                            controllerFontFace: "hs-controller-font-face",
                             controllerFontBigger: "hs-controller-font-bigger",
                             controllerFontSmaller: "hs-controller-font-smaller",
                             controllerContrast: "hs-controller-contrast",
                             controllerSlider: "hs-controller-slider",
                             controllerToggler: "hs-controller-toggler", //The button that opens and close the panel.
                             controller: "#hs-controller" //controller toolbar
+                        },
+                        fontface: {
+                            'hs-font-arial': 'Arial',
+                            'hs-font-helvetica': 'Helvetica',
+                            'hs-font-timesNewRoman': 'Times New Roman'
                         }
                     };
                 Heartstring.Fontbar.init(".hs-fontbar", fontbarConfig);
@@ -37,7 +43,14 @@
                 <div id="hs-controller" class="span4 offset5" style="display: none;">
                     <div style="margin-bottom: 9px" class="btn-toolbar">
                         <div class="btn-group">
-                          <button id="hs-controller-font-family" class="btn"><i class="icon-font"></i></button>
+                          <div class="drop-down">
+                          <button class="btn" data-toggle="dropdown" id="hs-controller-font-face">
+                              <i class="icon-font"></i>
+                          </button>
+                          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                              <!-- will be added automatically -->
+                          </ul>
+                          </div>
                           <button id="hs-controller-contrast" class="btn"><i class="icon-adjust"></i></button>
                           <button id="hs-controller-font-smaller" class="btn"><i class="hs-icon"><img src="img/glyphicons/glyphicons_115_text_smaller.png"></i></button>
                           <button id="hs-controller-font-bigger" class="btn"><i class="hs-icon"><img src="img/glyphicons/glyphicons_116_text_bigger.png"></i></button>
