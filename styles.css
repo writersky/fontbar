@@ -19,3 +19,10 @@
 .btn-more {
     padding: 10px;
 }
+.drop-down {
+    float: left;
+}
+.dropdown-menu {
+    bottom: 100%;
+    top: auto;
+}
