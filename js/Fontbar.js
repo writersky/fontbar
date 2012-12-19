@@ -124,7 +124,7 @@ Heartstring.Fontbar = function (container, config) {
     //toggle state
     that.bindToggler = function(that) {
         Heartstring.select(that.config.selectors.controllerToggler).bind("click", function (evt) {
-            Heartstring.select(that.config.selectors.controller).toggle();
+            Heartstring.select(that.config.selectors.controller).slideToggle(100);
         });
     }
     
